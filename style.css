@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div:not([class]) {
+  width: 25%;
+}
+
+.content__main {
+  display: flex;
+}
+
+.checkbox {
+  position: relative;
+  width: 60px;
+  cursor: pointer;
+  height: 20px;
+  box-sizing: border-box;
+  margin: 0 10px;
+}
+
+.gender {
+  position: relative;
+  display: flex;
+}
+
+.checkbox::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: solid 1px white;
+  background-color: #249be5;
+  cursor: pointer;
+  transition: 0.5s; 
+}
+
+.checkbox::after {
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #bab5b5;
+  transition: 0.5s; 
+}
+
+.male, .female {
+  position: absolute;
+  left: 83px;
+  top: 5%;
+  align-items: center;
+}
+
+.female {
+  opacity: 0;
+}
+
+.checkbox:checked.checkbox::before {
+  background-color: #ffc0cb;
+}
+
+.checkbox:checked.checkbox::after {
+  margin-left: 42px;
+}
+
+.checkbox:checked~.male {
+  opacity: 0;
+}
+
+.checkbox:checked~.female {
+  opacity: 100;
+}
